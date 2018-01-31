@@ -27,18 +27,18 @@ class ViewController: UIViewController,UITextFieldDelegate {
         return updatedText.count <= 2
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         self.textFieldGuess.delegate = self
+
+        UIApplication.shared.isIdleTimerDisabled = true
+
         
         //Looks for single or multiple taps.
     }
     
-    //Calls this function when the tap is recognized.
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -72,10 +72,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         
         textFieldShouldReturn(textFieldGuess)
         
-    
-        
-    
-        
+
     }
     
     @IBOutlet weak var results: UILabel!
