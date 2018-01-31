@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITextFieldDelegate {
     
     var randomDiceIndex1:Int = 0
     var randomDiceIndex2:Int = 0
@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.textFieldGuess.delegate = self
         
         //Looks for single or multiple taps.
     }
@@ -61,6 +63,8 @@ class ViewController: UIViewController {
             print("Lost")
         }
         
+        textFieldShouldReturn(textFieldGuess)
+        
     }
     
     @IBOutlet weak var results: UILabel!
@@ -69,5 +73,16 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var winORLoseLabel: UILabel!
     
+    // Hide KeyBoard when user touch outside keyboard
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    // press return key
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textFieldGuess.resignFirstResponder()
+        return (true)
+    }
 }
 
