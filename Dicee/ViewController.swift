@@ -35,8 +35,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
 
         UIApplication.shared.isIdleTimerDisabled = true
 
-        
-        //Looks for single or multiple taps.
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,8 +69,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
         }
         
         textFieldShouldReturn(textFieldGuess)
-        
-
     }
     
     @IBOutlet weak var results: UILabel!
@@ -86,11 +82,9 @@ class ViewController: UIViewController,UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    // press return key
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textFieldGuess.resignFirstResponder()
         return (true)
     }
 }
-
